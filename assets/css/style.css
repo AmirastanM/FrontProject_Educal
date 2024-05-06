@@ -39,7 +39,7 @@ button {
     outline: none;
 }
 
-section {
+#section {
     z-index: 3;
 }
 
@@ -59,12 +59,12 @@ section {
 
 
 
-a.try_free {
+a.try-free {
     padding: 12.8px 24px;
     background: #455ef9;
 }
 
-a.try_free:hover {
+a.try-free:hover {
     background: #455ef9;
     border-color: #455ef9;
     box-shadow: var(--shadow, 0 10px 20px 0 rgba(4, 23, 118, 0.3)) !important;
@@ -101,10 +101,11 @@ article.article h3 span .yellowbg {
     }
 }
 
+
 /* header */
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -112,6 +113,27 @@ header {
     z-index: 100;
 }
 
+header.sticky {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background: var(--color-light, #fff);
+    box-shadow: var(--shadow);
+    animation: 0.3s ease-in-out 0s 1 normal forwards running fade;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translate3d(0px, -100%, 0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
 
 ul li a,
 a {
@@ -120,22 +142,25 @@ a {
     transition: all 0.3s ease-in-out 0s;
 }
 
+section {
+    z-index: 3;
+}
 
-header .header_left a.logo {
+header .header-left a.logo {
     margin-top: 10px;
 }
 
-header .header_left a.logo figure {
+header .header-left a.logo figure {
     width: 114px;
     height: 46px;
     margin: 0;
 }
 
-header .header_category {
+header .header-category {
     padding-left: 56px;
 }
 
-header .header_category::before {
+header .header-category::before {
     content: "";
     position: absolute;
     top: -7px;
@@ -145,17 +170,18 @@ header .header_category::before {
     background: rgb(206, 206, 206);
 }
 
-header .header_category li ul.drop_down_menu li>a:hover,
-header ul li.drop_down_btn:hover>a {
-    color: blue;
+header .header-category li ul.drop-down-menu li>a:hover,
+header ul li.drop-down-btn:hover>a {
+    fill: var(--primary-color, #2b4eff);
+    color: var(--primary-color, #2b4eff);
 }
 
-header .header_category .header_category-icon {
+header .header-category .header-category-icon {
     width: 15px;
     margin-right: 10px;
 }
 
-header ul li ul.drop_down_menu {
+header ul li ul.drop-down-menu {
     left: 0px;
     width: 200px;
     background: #fff;
@@ -166,56 +192,56 @@ header ul li ul.drop_down_menu {
     z-index: 9;
 }
 
-header ul li ul.category_drop_down_menu {
+header ul li ul.category-drop-down-menu {
     padding: 17px 0px 15px;
     border-radius: 4px;
 }
 
-header ul li ul.drop_down_menu li a {
+header ul li ul.drop-down-menu li a {
     width: 100%;
 }
 
-header .header_category li ul.drop_down_menu li>a {
+header .header-category li ul.drop-down-menu li>a {
     padding: 3px 30px;
     color: rgb(109, 110, 117);
     font-weight: 500;
     text-transform: capitalize;
 }
 
-header li.drop_down_btn:hover ul.drop_down_menu {
+header li.drop-down-btn:hover ul.drop-down-menu {
     top: 100%;
     visibility: visible;
     opacity: 1;
 }
 
-header .header_right nav.main_menu {
+header .header-right nav.main-menu {
     width: 50%;
 }
 
-header .header_right nav.main_menu ul {
+header .header-right nav.main-menu ul {
     padding: 0px;
 }
 
-header .header_right nav.main_menu ul a:not(.drop_down_menu a) {
+header .header-right nav.main-menu ul a:not(.drop-down-menu a) {
     padding: 35px 0px;
 }
 
-header nav.main_menu ul li ul.drop_down_menu {
+header nav.main-menu ul li ul.drop-down-menu {
     top: 120%;
 }
 
-header nav.main_menu ul li ul.drop_down_menu a {
+header nav.main-menu ul li ul.drop-down-menu a {
     padding: 10px 25px;
     font-size: 13px;
     position: relative;
     z-index: 1;
 }
 
-header nav.main_menu ul li ul.drop_down_menu li:not(:last-child) a {
+header nav.main-menu ul li ul.drop-down-menu li:not(:last-child) a {
     border-bottom: 1px solid rgb(221, 221, 221);
 }
 
-header nav.main_menu ul li ul.drop_down_menu a::before {
+header nav.main-menu ul li ul.drop-down-menu a::before {
     content: "";
     position: absolute;
     top: 0px;
@@ -227,42 +253,50 @@ header nav.main_menu ul li ul.drop_down_menu a::before {
     transition: transform 0.5s ease-in-out 0s;
 }
 
-header nav.main_menu ul li ul.drop_down_menu a:hover {
+header nav.main-menu ul li ul.drop-down-menu a:hover {
     color: blue;
 }
 
 
-header nav.main_menu ul li ul.drop_down_menu a:hover::before {
+header nav.main-menu ul li ul.drop-down-menu a:hover::before {
     transform-origin: left center;
     transform: scaleX(1);
     transition-delay: 0.1s;
 }
 
-header .form_and_btn form {
-    background: #fff;
-    padding: 8px 16px 8px 24px;
-    border-radius: 3.2px;
-    margin-right: 24px;
+header .form-and-btn form {
+    background: var(--color-light, #fff);
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    border-radius: 0.2rem;
+    margin-right: 1.5rem;
     border: 1px solid transparent;
 }
 
-header .form_and_btn form .shop_cart_icon {
+header.sticky .form-and-btn form {
+    background: var(--gray-color, #edeef3);
+}
+
+header .form-and-btn form:focus-within {
+    border-color: var(--primary-color, #455ef9);
+}
+
+header .form-and-btn form .shopping-cart-icon {
     width: 24px;
 }
 
-header .form_and_btn form .shop_cart_icon path {
+header .form-and-btn form .shopping-cart-icon path {
     fill: transparent;
     stroke: rgb(0, 0, 0);
     stroke-width: 1.2px;
 }
 
-header .form_and_btn form button,
-.form_and_btn form input {
+header .form-and-btn form button,
+.form-and-btn form input {
     background: transparent;
     border: none;
 }
 
-header .form_and_btn form input {
+header .form-and-btn form input {
     padding: 5px 16px;
     font-size: 14px;
     width: 100%;
@@ -270,32 +304,47 @@ header .form_and_btn form input {
     margin-right: 10px;
 }
 
-header .form_and_btn form .shop_cart span {
+header .form-and-btn form .shopping-cart-and-label span {
     position: absolute;
     top: -7px;
     right: -11px;
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #455ef9;
+    background: var(--primary-color, #455ef9);
     text-align: center;
     line-height: 18px;
-    color: #fff;
+    color: var(--color-light, #fff);
     font-size: 13px;
     box-shadow: var(--shadow, 0 10px 20px 0 rgba(4, 23, 118, 0.3));
 }
 
+/* overlay */
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 112;
+}
 
+.overlay.toggle {
+    opacity: 1;
+    pointer-events: all;
+}
 
-/* main_page */
+/* main-page */
 
-section.main_page {
+#main-page {
     padding-top: 240px;
     padding-bottom: 250px;
     background: #edeef3;
 }
 
-section.main_page .main_page_custom_shape img.circle {
+#main-page .main-page-custom-shape img.circle {
     top: 25%;
     left: 5%;
     animation: 5s linear 0s infinite alternate none running rotate;
@@ -307,21 +356,21 @@ section.main_page .main_page_custom_shape img.circle {
     }
 }
 
-section.main_page .main_page_custom_shape img.semicircle {
+#main-page .main-page-custom-shape img.semicircle {
     bottom: 29%;
     left: 0px;
 }
 
-section.main_page .main_page_custom_shape img.dots {
+#main-page .main-page-custom-shape img.dots {
     right: 0px;
     bottom: 38%;
 }
 
-section.main_page .article_wrapper {
+#main-page .article-wrapper {
     padding-top: 32px;
 }
 
-section.main_page article.article {
+#main-page article.article {
     padding: 0px 16px 0px 64px;
 }
 
@@ -331,17 +380,17 @@ article.article h3 {
     font-weight: 600;
 }
 
-section.main_page article.main_page_article p {
+#main-page article.main-page-article p {
     font-size: 19.2px;
     padding-right: 128px;
     margin-bottom: 32px;
 }
 
-section.main_page .main_page_main_right img {
+#main-page .main-page-main-right img {
     z-index: -1;
 }
 
-section.main_page .main_page_main_right img.dot-square {
+#main-page .main-page-main-right img.dot-square {
     bottom: -3%;
     left: -5%;
     animation: 3s linear 0s infinite alternate none running upDown;
@@ -353,36 +402,36 @@ section.main_page .main_page_main_right img.dot-square {
     }
 }
 
-section.main_page .main_page_main_right img.fill_circle {
+#main-page .main-page-main-right img.fill-circle {
     top: -8%;
     right: 12%;
 }
 
-section.main_page .main_page_main_right img.stroke_circle {
+#main-page .main-page-main-right img.stroke-circle {
     right: 0px;
     bottom: -15%;
 }
 
-section.main_page .main_page_main_right .main_page_thumb_big {
+#main-page .main-page-main-right .main-page-thumb-big {
     margin-right: 28.8px;
 }
 
-section.main_page .main_page_main_right .main_page_thumb_big figure {
+#main-page .main-page-main-right .main-page-thumb-big figure {
     border-radius: 40px 4px 40px 4px;
     overflow: hidden;
 }
 
-section.main_page.main_page_main_right.main_page_thumb_sm {
+#main-page.main-page-main-right.main-page-thumb-sm {
     width: 72%;
 }
 
-section.main_page .main_page_main_right .main_page_thumb_sm figure {
+#main-page .main-page-main-right .main-page-thumb-sm figure {
     margin-top: 64px;
     overflow: hidden;
     border-radius: 4px 40px 4px 40px;
 }
 
-section.main_page .main_page_main_right .animation_details {
+#main-page .main-page-main-right .animation-details {
     right: 5%;
     bottom: 12%;
     padding: 12.8px 24px;
@@ -411,12 +460,12 @@ section.main_page .main_page_main_right .animation_details {
     }
 }
 
-section.main_page .main_page_main_right .animation_details h4 {
+#main-page .main-page-main-right .animation-details h4 {
     font-size: 16.8px;
     font-weight: 600;
 }
 
-section.main_page .main_page_main_right .animation_details span {
+#main-page .main-page-main-right .animation-details span {
     font-size: 15px;
 }
 
@@ -424,61 +473,71 @@ section.main_page .main_page_main_right .animation_details span {
 /*  popular course  */
 
 
-section.course {
+#course {
     background: #fff;
 }
 
-section .row.mb {
+
+#course .row.mb {
     margin-bottom: 3rem;
 }
 
-section.course .container .col-4 {
+
+
+#course .container .col-4 {
     margin: 0.88rem 0px;
 }
 
-section.course article.article h3 {
+#course .container .col-4:hover {
+    background-color: blue;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#course article.article h3 {
     font-size: 2.5rem;
 }
 
-section a.view_all {
+#course a.view-all {
     background: #fff;
     width: max-content;
     margin-right: 1.4rem;
     color: var(--bs-gray-600);
 }
 
-section a.view_all i {
+#course a.view-all i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.3s ease-in-out 0s;
 }
 
-section a.view_all i:first-child {
+#course a.view-all i:first-child {
     right: 5px;
     z-index: -1;
     opacity: 0;
 }
 
-section a.view_all i:last-child {
+#course a.view-all i:last-child {
     right: -10px;
 }
 
-section a.view_all:hover {
-    color: var(--primary-color);
+#course a.view-all:hover {
+    color: blue;
 }
 
-section a.view_all:hover i:first-child {
+#course a.view-all:hover i:first-child {
     right: -14px;
     opacity: 1;
 }
 
-section a.view_all:hover i:last-child {
+#course a.view-all:hover i:last-child {
     right: -1.5rem;
     opacity: 0;
 }
 
-section.course .course_category {
+/* course_category */
+
+#course-categories {
     border: 2px solid rgb(243, 243, 243);
     border-radius: 0.4rem;
     transition: all 0.3s ease-in-out 0s;
@@ -486,43 +545,43 @@ section.course .course_category {
 
 
 
-section.course .course_category a {
+#course .course-category a {
     width: 100%;
     display: flex;
     align-items: center;
     padding-left: 1.5rem;
 }
 
-section.course .course_category .category_icon {
+#course .course-category .category-icon {
     width: 40px;
     fill: rgb(43, 78, 255);
 }
 
-section.course .course_category:hover .category_content * {
+#course .course-category:hover .category-content * {
     color: #fff;
 }
 
-section.course .course_category:hover .category_icon {
+#course .course-category:hover .category-icon {
     fill: #fff;
 }
 
-section.course .course_category .category_content h4 {
+#course .course-category .category-content h4 {
     margin: 0px;
     font-size: 1.2rem;
     color: var(--color);
     font-weight: 600;
 }
 
-section.course .course_category .category_content {
+#course .course-category .category-content {
     padding-left: 2rem;
     padding-top: 1rem;
 }
 
-section.course .course_category .category_content p {
+#course .course-category .category-content p {
     color: #555555;
 }
 
-section.course .course_base_item {
+#course .course-base-item {
     margin-top: 6rem;
     padding: 30px 30px 20px;
     border: 1px solid rgb(221, 221, 221);
@@ -533,12 +592,12 @@ section.course .course_base_item {
     background-size: cover;
 }
 
-section.course .course_base_content {
+#course .course-base-content {
     width: 50%;
 
 }
 
-section.course .course_base_content span {
+#course .course-base-content span {
     padding: 1px 15px;
     color: #fff;
     font-size: 13px;
@@ -547,25 +606,25 @@ section.course .course_base_content span {
     background: var(--secondary-color, #fc4389);
 }
 
-section.course h3 {
+#course h3 {
     font-size: 1.3rem;
     font-weight: 700;
     cursor: pointer;
 }
 
 
-section.course .course_base_content a.try_free {
+#course .course-base-content a.try-free {
     padding: 0.2rem 0.5rem;
     margin-top: 2rem;
 }
 
-section.course .course_base_item.one {
+#course .course-base-item.one {
     background-image: url("../images/banner-bg-1.jpg");
     margin-right: 0.5rem;
     height: 250px;
 }
 
-section.course .course_base_item.two {
+#course .course-base-item.two {
     background-image: url("../images/banner-bg-2.jpg");
     margin-left: 0.5rem;
     height: 250px;
@@ -574,43 +633,43 @@ section.course .course_base_item.two {
 
 
 
-section.course .course_banner_item.two {
+#course .course-banner-item.two {
     padding: 2px 30px 0px;
 }
 
-section.course .course_banner_item.two .course_banner_thumb {
+#course .course-banner-item.two .course-banner-thumb {
     width: 300px;
 }
 
 
 
-section.course_categories {
+#course-categories {
     background: var(--gray-color);
 }
 
-section.course_categories article.article h3 {
+#course-categories article.article h3 {
     font-size: 2.2rem;
 }
 
-section.course_categories .course_categoties_filter_menu {
+#course-categories .course-categoties-filter-menu {
     flex-wrap: wrap;
 }
 
-section.course_categories .course_categoties_filter_menu li {
+#course-categories .course-categoties-filter-menu li {
     color: var(--color);
     cursor: pointer;
 }
 
-section.course_categories .course_categoties_filter_menu li:not(:last-child) {
+#course-categories .course-categoties-filter-menu li:not(:last-child) {
     margin-right: 1rem;
 }
 
-section.course_categories .course_categoties_filter_menu li.active,
-section.course_categories .course_categoties_filter_menu li:hover {
+#course-categories .course-categoties-filter-menu li.active,
+#course-categories .course-categoties-filter-menu li:hover {
     color: var(--primary-color, #2b4eff);
 }
 
-section .course_categoties_filter_menu li span {
+#course-categories .course-categories-filter-menu li span {
     top: -115%;
     left: 45%;
     font-size: 13px;
@@ -621,7 +680,7 @@ section .course_categoties_filter_menu li span {
     box-shadow: var(--shadow);
 }
 
-section .course_categoties_filter_menu li span::before {
+#course-categories .course-categoties-filter-menu li span::before {
     content: "";
     position: absolute;
     bottom: -8px;
@@ -634,11 +693,11 @@ section .course_categoties_filter_menu li span::before {
     border-color: var(--primary-color, #2b4eff) transparent transparent transparent;
 }
 
-section .course_card {
+#course-categories .course-card {
     transform-origin: bottom center;
 }
 
-section .course_card_item {
+#course-categories .course-card-item {
     background: rgb(255, 255, 255);
     border-radius: 0.5rem;
     overflow: hidden;
@@ -646,65 +705,65 @@ section .course_card_item {
     box-shadow: var(--shadow);
 }
 
-section .course_card_item .course_card_header {
+#course-categories .course-card-item .course-card-header {
     overflow: hidden;
 }
 
-section .course_card_item:hover .course_card_header img {
+#course-categories .course-card-item:hover .course-card-header img {
     transform: scale(1.1);
 }
 
-section .course_card_header img {
+#course-categories .course-card-header img {
     transition: all 0.3s ease-in-out 0s;
 }
 
-section .course_card_header .course_tag {
+#course-categories .course-card-header .course-tag {
     top: 20px;
     left: 20px;
     color: rgb(255, 255, 255);
 }
 
-section .course_card_header .course_tag span {
+#course-categories .course-card-header .course-tag span {
     padding: 0px 5px;
     border-radius: 0.25rem;
     background: var(--primary-color, #2b4eff);
 }
 
-section .course_card_body,
-section .course_card_footer {
+#course-categories .course-card-body,
+#course-categories .course-card-footer {
     padding-left: 2rem;
     padding-right: 2rem;
 }
 
-section .course_card_body {
+#course-categories .course-card-body {
     padding-top: 1.5rem;
     border-bottom: 1px solid rgb(235, 235, 235);
 }
 
-section .course_card_body .course_lesson_and_rating {
+#course-categories .course-card-body .course-lesson-and-rating {
     color: rgb(80, 79, 79);
     margin-bottom: 1rem;
 }
 
-section .course_card_body .course_lesson_and_rating i.fas.fa-star {
+#course-categories .course-card-body .course-lesson-and-rating i.fas.fa-star {
     color: #ff9c43;
 }
 
-section .course_card_body h3.course_name {
+#course-categories .course-card-body h3.course-name {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
 }
 
-section.course_categories a {
+#course-categories a {
     color: var(--color, #0e1133);
 }
 
-section.course_categories a:hover,
-section.course_categories h3.course_name:hover a {
+#course-categories a:hover,
+#course-categories h3.course-name:hover a {
     color: var(--primary-color, #2b4eff);
 }
 
-section .course_card_body .course_instructor figure {
+#course-categories .course-card-body .course-instructor figure {
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 0px;
@@ -714,54 +773,54 @@ section .course_card_body .course_instructor figure {
     box-shadow: var(--shadow);
 }
 
-section .course_card_body .course_instructor {
+#course-categories .course-card-body .course-instructor {
     margin-bottom: 1rem;
 }
 
-section .course_card_body .instructor_name a {
+#course-categories .course-card-body .instructor-name a {
     color: rgb(68, 68, 68);
 }
 
-section .course_card_item .course_card_footer {
+#course-categories s .course-card-item .course-card-footer {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
 }
 
-section .course_card_item .course_card_footer .current_amount {
+#course-categories .course-card-item .course-card-footer .current-amount {
     font-size: 1.2rem;
     color: var(--primary-color, #2b4eff);
     font-weight: bold;
     margin-left: 5px;
 }
 
-section .course_card_footer a.view_all i:last-child {
+#course-categories .course-card-footer a.view-all i:last-child {
     right: -19px;
 }
 
-section .course_card_footer a.view_all:hover i:first-child {
+#course-categories .course-card-footer a.view-all:hover i:first-child {
     right: -19px;
     z-index: 3;
 }
 
 /* events section */
-section.event {
+#event {
     background: var(--color-light, #fff);
 }
 
-section.event article.article h3 {
+#event article.article h3 {
     font-size: 3.2rem;
 }
 
-section.event .event_bg_shape {
+#event .event-bg-shape {
     left: 28%;
 }
 
-section.event .row>* {
+#event .row>* {
     position: relative;
     z-index: 2;
 }
 
-section.event .event_item {
+#event .event-item {
     box-shadow: var(--shadow);
     padding: 2rem 2.2rem;
     border-radius: 0.5rem;
@@ -769,7 +828,7 @@ section.event .event_item {
     background: #fff;
 }
 
-section.event .event_item:before {
+#event .event-item:before {
     content: "";
     position: absolute;
     top: auto;
@@ -783,23 +842,23 @@ section.event .event_item:before {
     transition: all 0.3s ease-in-out;
 }
 
-section.event .event_item.fill::before,
-section.event .event_item:hover::before {
+#event .event-item.fill::before,
+#event .event-item:hover::before {
     top: 0;
     bottom: auto;
     height: 100%;
 }
 
-section.event .event_item .event_time_and_date {
+#event .event-item .event-time-and-date {
     font-size: 14px;
     color: #777;
 }
 
-section.event .event_item .event_time_and_date span {
+#event .event-item .event-time-and-date span {
     padding-right: 8px;
 }
 
-section.event .event_item .event_time_and_date span.br:before {
+#event .event-item .event-time-and-date span.br:before {
     content: "";
     position: absolute;
     top: 3px;
@@ -809,52 +868,52 @@ section.event .event_item .event_time_and_date span.br:before {
     background: #777;
 }
 
-section.event .event_item h3.event_name {
+#event .event-item h3.event-name {
     font-size: 1.4rem;
     margin-top: 0.3rem;
     margin-bottom: 0;
 }
 
-section.event .event_item h3.event_name:hover a {
+#event .event-item h3.event-name:hover a {
     color: var(--primary-color, #2b4eff);
 }
 
-section.event .event_item a.view_all i:first-child {
+#event .event-item a.view-all i:first-child {
     z-index: 1;
 }
 
-section.event .event_item a.view_all:hover i:first-child {
+#event .event-item a.view-all:hover i:first-child {
     right: -19px;
 }
 
-section.event .event_item a.view_all i:last-child {
+#event .event-item a.view-all i:last-child {
     right: -19px;
 }
 
 /* pricing card  */
-section.pricing_table {
+#pricing {
     padding: 100px 0 16rem;
     background: var(--color-light, #fff);
 }
 
-section.pricing_table .nav.nav-pills,
-section.pricing_table article.article {
+#pricing .nav.nav-pills,
+#pricing article.article {
     width: max-content;
     margin: 0 auto;
 }
 
-section.pricing_table .nav.nav-pills {
+#pricing .nav.nav-pills {
     border: 2px solid var(--gray-color, #edeef3);
     border-radius: 0.4rem;
     overflow: hidden;
 }
 
-section.pricing_table .nav.nav-pills li button {
+#pricing .nav.nav-pills li button {
     padding: 0.4rem 1rem;
     border-radius: 0;
 }
 
-section.pricing_table .inclusive_card {
+#pricing .inclusive-card {
     padding: 3rem;
     background: #e9edf7;
     width: 50%;
@@ -862,57 +921,57 @@ section.pricing_table .inclusive_card {
     border-radius: 0.5rem;
 }
 
-.inclusive_cards.tab-content>.active {
+.inclusive-cards.tab-content>.active {
     display: flex;
 }
 
-section.pricing_table .inclusive_card .inclusive_card_header {
+#pricing .inclusive-card .inclusive-card-header {
     border-bottom: 1px solid #c3c3c3;
 }
 
-section.pricing_table .inclusive_card .inclusive_card_header h4,
+#pricing .inclusive-card .inclusive-card-header h4,
 h3.price {
     font-weight: 600;
 }
 
-section.pricing_table .inclusive_card .inclusive_card_header h3.price {
+#pricing .inclusive-card .inclusive-card-header h3.price {
     margin-bottom: 2rem;
     font-size: 3rem;
 }
 
-section.pricing_table .inclusive_card .inclusive_card_header h3.price sub {
+#pricing .inclusive-card .inclusive-card-header h3.price sub {
     font-size: initial;
     font-weight: normal;
     margin-left: -1rem;
 }
 
-section.pricing_table .inclusive_card ul.inclusive_card_featured {
+#pricing .inclusive-card ul.inclusive-card-featured {
     padding: 1.5rem 0 2.5rem;
 }
 
-section.pricing_table .inclusive_card ul.inclusive_card_featured li {
+#pricing .inclusive-card ul.inclusive-card-featured li {
     margin: 0.5rem 0;
     transition: all 0.3s ease-in-out;
 }
 
-section.pricing_table .inclusive_card ul.inclusive_card_featured li:hover {
+#pricing .inclusive-card ul.inclusive-card-featured li:hover {
     color: #09c128;
 }
 
-section.pricing_table .inclusive_card ul.inclusive_card_featured li i {
+#pricing .inclusive-card ul.inclusive-card-featured li i {
     color: #09c128;
     margin-right: 0.5rem;
 }
 
-section.pricing_table .inclusive_card.dimond a.try_free {
+#pricing .inclusive-card.dimond a.try-free {
     background: transparent;
 }
 
-section.pricing_table .inclusive_card.dimond a.try_free:hover {
+#pricing .inclusive-card.dimond a.try-free:hover {
     background: var(--primary-color, #2b4eff);
 }
 
-section.pricing_table .inclusive_card.dimond span.best_sell {
+#pricing .inclusive-card.dimond span.best-sell {
     top: 5%;
     right: -3%;
     background: var(--secondary-color);
@@ -932,7 +991,7 @@ section.pricing_table .inclusive_card.dimond span.best_sell {
 
 }
 
-section.pricing_table .inclusive_card.dimond span.best_sell::after {
+#pricing .inclusive-card.dimond span.best-sell::after {
     position: absolute;
     content: "";
     bottom: -10px;
@@ -945,8 +1004,12 @@ section.pricing_table .inclusive_card.dimond span.best_sell::after {
 
 }
 
-/* under footer block */
-section.under_footer_guide .footer_guid_card {
+
+
+
+
+/* guide - under footer */
+#guide .own-guid-card {
     padding: 2.5rem 5rem;
     background: #2b4eff;
     border-radius: 0.5rem;
@@ -955,40 +1018,40 @@ section.under_footer_guide .footer_guid_card {
     z-index: 3;
 }
 
-section.under_footer_guide .footer_guid_card .own_card_content {
+#guide .own-guid-card .own-card-content {
     flex-wrap: wrap;
 }
 
-section.under_footer_guide .footer_guid_card .cicle_shape {
+#guide .own-guid-card .cicle-shape {
     right: -163px;
     bottom: -90px;
 }
 
-section.under_footer_guide .footer_guid_card h3 {
+#guide .own-guid-card h3 {
     font-size: 2.5rem;
     margin: 0;
-    color: #fff;
+    color: var(--color-light, #fff);
     font-weight: 600;
     z-index: 3;
 }
 
-section.under_footer_guide .footer_guid_card .btn {
+#guide .own-guid-card .btn {
     z-index: 2;
-    background: #fff;
+    background: var(--color-light, #fff);
     padding: 1rem 2.5rem;
 }
 
-section.under_footer_guide .footer_guid_card .btn:focus,
-section.under_footer_guide .footer_guid_card .btn:hover {
+#guide .own-guid-card .btn:focus,
+#guide .own-guid-card .btn:hover {
     box-shadow: var(--shadow);
-    color: var(--color, #0e1133);
+    color: #0e1133;
 }
 
-/* footer style */
+/* footer */
 footer {
     padding-top: 13rem;
     margin-top: -8rem;
-    background: var(--color);
+    background: rgb(9, 9, 62);
     color: var(--gray-color);
 }
 
@@ -1012,6 +1075,8 @@ footer .icons a {
     border-radius: 0.3rem;
     transition: all 0.3s ease-in-out;
     outline: 2px solid var(--btn-color);
+    -webkit-transition: all 0.3s ease-in-out;
+
 }
 
 footer .icons a:hover {
@@ -1020,25 +1085,26 @@ footer .icons a:hover {
 
 footer h4 {
     margin-bottom: 1.5rem;
+    color: white;
 }
 
-ul.footer_menu li a {
+ul.footer-menu li a {
     margin: 0.2rem 0;
     color: #b9b9b9;
 }
 
-ul.footer_menu li a:hover {
+ul.footer-menu li a:hover {
     color: var(--color-light, #fff);
 }
 
-footer .footer_bottom {
+footer .footer-bottom {
     padding: 5px 0;
     font-size: 13px;
     border-top: 1px solid #1c1f3f;
 }
 
-footer .footer_bottom a {
-    color: #fff;
+footer .footer-bottom a {
+    color: var(--color-light, #fff);
 }
 
 footer form input[type="email"] {
@@ -1062,6 +1128,7 @@ footer form button {
 
 footer form button i {
     transition: all 0.3s ease-in-out;
+
 }
 
 footer form button i:first-child {
@@ -1073,6 +1140,7 @@ footer form button:hover i:first-child {
     left: 50%;
     opacity: 1;
     transform: translateX(-50%);
+
 }
 
 footer form button:hover i:last-child {
@@ -1080,11 +1148,11 @@ footer form button:hover i:last-child {
 }
 
 footer .con-mt {
-    margin-top: calc(2rem / var(--i, 0));
+    margin-top: 2rem;
 }
 
 /* click to top btn style */
-.clickToTop_btn {
+.clickToTop-btn {
     bottom: 3rem;
     right: 3rem;
     color: var(--color);
@@ -1100,12 +1168,12 @@ footer .con-mt {
     transition: all 0.3s ease-in-out;
 }
 
-.clickToTop_btn.fade {
+.clickToTop-btn.fade {
     opacity: 1;
     transform: translateY(0);
 }
 
-.clickToTop_btn .circle {
+.clickToTop-btn .circle {
     position: absolute;
     inset: 2px;
     display: grid;
